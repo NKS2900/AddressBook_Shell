@@ -36,7 +36,7 @@ function adduser()
 		LastName[$lastn]=$lname
 		((lastn++))
 	else
-		echo "Incalid Lname..."
+		echo "Invalid Lname..."
 	fi
 
 	read -p "Enter cotact no: " contact
@@ -50,12 +50,18 @@ function adduser()
 	fi
 
 	read -p "Enter city     : " city
-	CT[$ci]=$city
-	((ci++))
-
-	read -p "Enter State    : " state
-	ST[$st]=$state
-	((st++))
+	patn='^[a-zA-Z]{3,}$'
+		if [[ $city =~ $patn ]]
+		then
+			CT[$ci]=$city
+			((ci++))
+		else
+			echo "Pls enter valid city name..."
+		fi
+		
+	read -p "Enter State code  : " state
+		ST[$st]=$state
+		((st++))
 
 	read -p "Enter zip	: " zip
 	patt='^[0-9]{6}$'
