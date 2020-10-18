@@ -181,6 +181,19 @@ echo "========================================================================"
 until [ $end -eq 6 ]
 do
 
+read -p "
+         1.Add User
+         2.Edit
+         3.Delet
+         4.Display
+	 5.Serch Adress
+	 6.Exit --- " choice
+
+if [ $choice -eq 6 ]
+then
+         ((end++))
+fi
+
 case $choice in
 
 	        1)  adduser;;
@@ -196,18 +209,6 @@ case $choice in
 	        *)  echo "Invalid option...!!!!!!";;
 esac
 
-read -p "
-         1.Add User
-         2.Edit
-         3.Delet
-         4.Display
-	 5.Serch Adress
-	 6.Exit --- " choice
-
-if [ $choice -eq 6 ]
- then
-         ((end++))
- fi
 
 
 done
